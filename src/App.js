@@ -6,6 +6,7 @@ import Title from './components/Title';
 import TitlePage from './components/TitlePage';
 import Genre from './components/Genre';
 import GenrePage from './components/GenrePage';
+import movies from './movies.json';
 
 import Results from './components/Results';
 import Decades from './components/Decades';
@@ -16,6 +17,7 @@ import List from './components/List';
 import Login from './components/Login';
 import Logout from './components/Logout';
 import Footer from './components/Footer';
+import Header from './components/Header';
 import Cookies from 'js-cookie';
 
 /**************************************************************************************
@@ -40,9 +42,12 @@ function App() {
       STATE AND ASYNC FUNCTIONS
   ***************************************************************************************/
   let [user, setUser] = useState('');
+  let [genres, setGenres] = useState('');
+  let [isLoading, setIsLoading] = useState(true);
 
-  function getData() {
-    if (!document.cookie) {
+
+  /* function getData() {
+      if (!document.cookie) {
       setUser('');
     } else {
       let logger = Cookies.get('signedIn?');
@@ -57,9 +62,9 @@ function App() {
         }
       }
     }
-  }
+  } */
 
-  useEffect(() => { getData() }, [ setUser ]);
+  /*useEffect(() => { getData() }, [ setUser ]) */
 
   // used below in the NotFound component
   let url = window.location.pathname;
@@ -69,16 +74,16 @@ function App() {
   ***************************************************************************************/
 
   return (
-    <div id='app_div'>
+    <div id='app_div' className='my-5'>
       {/* passing user state to Header as props */}
-
+      <Header />
       <BrowserRouter>
         <Provider>
           <Routes>
             <Route
               strict path='/'
               element={
-                <HomeWithContext user={user}/>
+                <HomeWithContext user={user} />
               }
             />
             <Route
@@ -90,25 +95,25 @@ function App() {
             <Route
               path='/titles'
               element={
-                <TitlePageWithContext user={user}/>
+                <TitlePageWithContext user={user} />
               }
             />
             <Route
               path='/genres/:url'
               element={
-                <GenreWithContext user={user}/>
+                <GenreWithContext user={user} />
               }
             />
             <Route
               path='/genres'
               element={
-                <GenrePageWithContext user={user}/>
+                <GenrePageWithContext user={user} />
               }
             />
             <Route
               path='/results/:url'
               element={
-                <ResultsWithContext user={user}/>
+                <ResultsWithContext user={user} />
               }
             />
             <Route
@@ -133,7 +138,7 @@ function App() {
             <Route
               path='/decades/:url'
               element={
-                <DecadesWithContext user={user}/>
+                <DecadesWithContext user={user} />
               }
             />
             <Route
@@ -145,26 +150,26 @@ function App() {
             <Route
               path='/login'
               element={
-                <LoginWithContext user={user}/>
+                <LoginWithContext user={user} />
               }
             />
             <Route
               path='/logout'
               element={
-                <LogoutWithContext user={user}/>
+                <LogoutWithContext user={user} />
               }
             />
             <Route
               path='/register'
               element={
-                <RegisterWithContext user={user}/>
+                <RegisterWithContext user={user} />
               }
             />
             <Route
               path='*'
               element={
                 <div className='py-5 my-5 mx-auto'>
-                  <NotFound message={url} user={user}/>
+                  <NotFound message={url} user={user} />
                 </div>
               }
             />

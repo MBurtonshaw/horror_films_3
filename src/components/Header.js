@@ -1,25 +1,96 @@
-import { React, useState, useEffect } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { React } from 'react';
 
-function Header() {
-    if (window.innerWidth < 525) {
-        return (
-            <div>
-                <h1 className='main_header_1'>Horror Films</h1>
-                <div className='main_header_2'>
-                    <img src='../photos/menu_icon.png' className='width_adjuster m-auto' />
+function Header(props) {
+    /* if (props.user === '' || props.user === undefined) { */
+    return (
+        <div className='row align-items-start'>
+            <div className='col'></div>
+            <div id='Header' className='container col'>
+                <h1 className='w-100 m-auto'><a href='/' className='nonchalant'>Horror Films</a></h1>
+                <div className="dropdown w-100 m-auto my-3">
+                    <button className="btn " type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src='../photos/menu_icon.png' className='width_adjuster m-auto' />
+                    </button>
+                    <ul className="dropdown-menu text-center w-100 m-auto">
+                        <li>
+                            <button className="dropdown-item" type="button">
+                                <a href='/'>Home</a>
+                            </button>
+                        </li>
+                        <li>
+                            <button className="dropdown-item" type="button">
+                                <a href='/titles'>Titles</a>
+                            </button>
+                        </li>
+                        <li>
+                            <button className="dropdown-item" type="button">
+                                <a href='/genres'>Genres</a>
+                            </button>
+                        </li>
+                        <li>
+                            <button className="dropdown-item" type="button">
+                                <a href='/decades'>Decades</a>
+                            </button>
+                        </li>
+                        <li>
+                            <button className="dropdown-item" type="button">
+                                <a href='/login'>Login</a>
+                            </button>
+                        </li>
+                    </ul>
                 </div>
             </div>
-        );
-    }
-    return (
-        <div className='row'>
-            <h1 className='col align-self-center main_header_1'>Horror Films</h1>
-            <div className='col align-self-end main_header_2'>
-                <img src='../photos/menu_icon.png' className='width_adjuster m-auto' />
-            </div>
+            <div className='col'></div>
         </div>
     );
+    /* } else {
+        return (
+            <div className='row align-items-start'>
+                <div className='col'></div>
+                <div id='Header' className='container col'>
+                    <h1 className='w-100 m-auto'><a href='/' className='nonchalant'>Horror Films</a></h1>
+                    <div className="dropdown w-100 m-auto my-3">
+                        <button className="btn " type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src='../photos/menu_icon.png' className='width_adjuster m-auto' />
+                        </button>
+                        <ul className="dropdown-menu text-center w-100 m-auto">
+                            <li>
+                                <button className="dropdown-item" type="button">
+                                    <a href='/'>Home</a>
+                                </button>
+                            </li>
+                            <li>
+                                <button className="dropdown-item" type="button">
+                                    <a href='/titles'>Titles</a>
+                                </button>
+                            </li>
+                            <li>
+                                <button className="dropdown-item" type="button">
+                                    <a href='/genres'>Genres</a>
+                                </button>
+                            </li>
+                            <li>
+                                <button className="dropdown-item" type="button">
+                                    <a href='/decades'>Decades</a>
+                                </button>
+                            </li>
+                            <li>
+                                <button className="dropdown-item" type="button">
+                                    <a href='/login'>My List</a>
+                                </button>
+                            </li>
+                            <li>
+                                <button className="dropdown-item" type="button">
+                                    <a href='/login'>Logout</a>
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div className='col'></div>
+            </div>
+        );
+    } */
 }
 
 export default Header;

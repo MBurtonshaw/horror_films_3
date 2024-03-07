@@ -1,55 +1,45 @@
 import { React, useState, useEffect } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Header from './Header';
+import Loading from './Loading';
+import Error from './Error';
 
+function Main(props) {
+    let [isLoading, setIsLoading] = useState(true);
+    let [error, setError] = useState('');
+    let [movies, setMovies] = useState('');
+    let [genres, setGenres] = useState('');
 
-function Main() {
-    return (
-        <div>
-            <Header />
-            <div className='my-5 mx-auto'>
-                <p>asdjpokf;loooooololl;akj;lkdfj;aklsjf;lkasdjfklajsdlkfjads
-                    dsl;kfja;sdlkfja;l'sdjf;lasdjf;lasdf;lasd;lfja;sldfj;alsdjf;lasdjfa
-                    dsalfjnsd;lfna;lsdkf;lasdkjfl;'asdjf;lasjd;lfjasdl;'fgja;'sldfj'asdjfa
-                    sdfal;sdjf;aolskdjf;laksdjfl;kasdf;lkajsd;flkjasd';lfjna'sdl;fjas
-                    dfa'sldfjka;lsdkvals;idgf'la;ksdfhgl';ahsdf';lajkhn;'vorenoipernmaf
-                    sdfga;lsdfjkng;l4aoizosdfgoadfsoajndvfovjaods;ndrt
-                    hagldirgla'dsf pg lasdjfasd asldkfja;sl'fk ; ;'assdl'kagfj dsa 'sdfg a
-                    sd k'
-                </p>
+    async function getData() {
+        let films = await props.movies;
+        let types = await props.genres;
+        try {
+            setMovies(films);
+            setGenres(types);
+        } catch (err) {
+            setError(err.message);
+        }
+        setIsLoading(false);
+    }
+
+    useEffect(() => { getData() }, [setMovies, setGenres, setIsLoading])
+
+    if (isLoading) {
+        return (
+            <Loading />
+        );
+    } else {
+        if (error) {
+            return (
+                <Error message={error} />
+            );
+        }
+        return (
+            <div>
+                <div className='mx-auto'>
+                    <h1>jkdhasfhjkdfsjhkdfs</h1>
+                </div>
             </div>
-            <div className='py-5'>
-                <img className='w-75 m-auto' src='../photos/svgs/blob-scene-haikei.svg'></img>
-            </div>
-            <div className='my-5 mx-auto'>
-                <p>asdjpokf;loooooololl;akj;lkdfj;aklsjf;lkasdjfklajsdlkfjads
-                    dsl;kfja;sdlkfja;l'sdjf;lasdjf;lasdf;lasd;lfja;sldfj;alsdjf;lasdjfa
-                    dsalfjnsd;lfna;lsdkf;lasdkjfl;'asdjf;lasjd;lfjasdl;'fgja;'sldfj'asdjfa
-                    sdfal;sdjf;aolskdjf;laksdjfl;kasdf;lkajsd;flkjasd';lfjna'sdl;fjas
-                    dfa'sldfjka;lsdkvals;idgf'la;ksdfhgl';ahsdf';lajkhn;'vorenoipernmaf
-                    sdfga;lsdfjkng;l4aoizosdfgoadfsoajndvfovjaods;ndrt
-                    hagldirgla'dsf pg lasdjfasd asldkfja;sl'fk ; ;'assdl'kagfj dsa 'sdfg a
-                    sd k'
-                </p>
-            </div>
-            <div className='py-5'>
-                <img className='w-75 m-auto' src='../photos/svgs/blob-scene-haikei.svg'></img>
-            </div>
-            <div className='my-5 mx-auto'>
-                <p>asdjpokf;loooooololl;akj;lkdfj;aklsjf;lkasdjfklajsdlkfjads
-                    dsl;kfja;sdlkfja;l'sdjf;lasdjf;lasdf;lasd;lfja;sldfj;alsdjf;lasdjfa
-                    dsalfjnsd;lfna;lsdkf;lasdkjfl;'asdjf;lasjd;lfjasdl;'fgja;'sldfj'asdjfa
-                    sdfal;sdjf;aolskdjf;laksdjfl;kasdf;lkajsd;flkjasd';lfjna'sdl;fjas
-                    dfa'sldfjka;lsdkvals;idgf'la;ksdfhgl';ahsdf';lajkhn;'vorenoipernmaf
-                    sdfga;lsdfjkng;l4aoizosdfgoadfsoajndvfovjaods;ndrt
-                    hagldirgla'dsf pg lasdjfasd asldkfja;sl'fk ; ;'assdl'kagfj dsa 'sdfg a
-                    sd k'
-                </p>
-            </div>
-            <div className='py-5'>
-                <img className='w-75 m-auto' src='../photos/svgs/blob-scene-haikei.svg'></img>
-            </div>
-        </div>);
+        );
+    }
 }
 
 export default Main;
