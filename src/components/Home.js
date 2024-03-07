@@ -25,12 +25,8 @@ function Home(props) {
 
     if (isLoading) {
         return (
-            <div className='row align-items-start mx-auto mt-5'>
-                <div className='col'></div>
-                <div className='col'>
-                    <Loading />
-                </div>
-                <div className='col'></div>
+            <div className='mt-5 w-75 mx-auto'>
+                <Loading />
             </div>
         );
     } else {
@@ -41,12 +37,8 @@ function Home(props) {
         }
         return (
             <div>
-                <div className='row align-items-start mx-auto mt-5'>
-                    <div className='col'></div>
-                    <div className='col'>
-                        <Main movies={movies} genres={genres} />
-                    </div>
-                    <div className='col'></div>
+                <div className='mt-5 w-75 mx-auto'>
+                    <Main movies={movies} genres={genres} />
                 </div>
             </div>
         );

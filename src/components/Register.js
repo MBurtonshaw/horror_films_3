@@ -30,8 +30,10 @@ function Register() {
             );
         }
         return (
-            <div >
-
+            <div>
+                <div className='mx-auto background_box p-5'>
+                    <h1>Register</h1>
+                </div>
             </div>
         );
     }

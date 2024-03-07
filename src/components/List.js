@@ -30,8 +30,10 @@ function List() {
             );
         }
         return (
-            <div >
-
+            <div>
+                <div className='mx-auto background_box p-5'>
+                    <h1>List</h1>
+                </div>
             </div>
         );
     }

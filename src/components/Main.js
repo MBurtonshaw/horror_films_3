@@ -34,8 +34,8 @@ function Main(props) {
         }
         return (
             <div>
-                <div className='mx-auto'>
-                    <h1>jkdhasfhjkdfsjhkdfs</h1>
+                <div className='mx-auto background_box p-5'>
+                    <h1>Main</h1>
                 </div>
             </div>
         );

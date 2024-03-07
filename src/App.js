@@ -119,19 +119,7 @@ function App() {
             <Route
               path='/decades'
               element={
-                <DecadesPageWithContext
-                  decades={
-                    [
-                      { 'name': 'Classics', 'url': 'classics' },
-                      { 'name': '1970s', 'url': '70s' },
-                      { 'name': '1980s', 'url': '80s' },
-                      { 'name': '1990s', 'url': '90s' },
-                      { 'name': '2000s', 'url': '00s' },
-                      { 'name': '2010s', 'url': '10s' },
-                      { 'name': '2020s', 'url': '20s' }
-                    ]
-                  }
-                  user={user}
+                <DecadesPageWithContext user={user}
                 />
               }
             />

@@ -30,8 +30,10 @@ function Login() {
             );
         }
         return (
-            <div >
-
+            <div>
+                <div className='mx-auto background_box p-5'>
+                    <h1>Login</h1>
+                </div>
             </div>
         );
     }

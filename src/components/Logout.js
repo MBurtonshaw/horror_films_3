@@ -30,8 +30,10 @@ function Logout() {
             );
         }
         return (
-            <div >
-
+            <div>
+                <div className='mx-auto background_box p-5'>
+                    <h1>Logout</h1>
+                </div>
             </div>
         );
     }

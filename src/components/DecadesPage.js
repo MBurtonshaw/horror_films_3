@@ -6,18 +6,26 @@ function DecadesPage() {
     let [isLoading, setIsLoading] = useState(true);
     let [error, setError] = useState('');
     let [movies, setMovies] = useState('');
-    let [genres, setGenres] = useState('');
+    let [decades, setDecades] = useState('');
 
     async function getData() {
         try {
-            setMovies('');
+            setDecades([
+                'classics',
+                '70s',
+                '80s',
+                '90s',
+                '00s',
+                '10s',
+                '20s'
+            ]);
         } catch (err) {
             setError(err.message);
         }
         setIsLoading(false);
     }
 
-    useEffect(() => { getData() }, [setIsLoading]);
+    useEffect(() => { getData() }, [setDecades, setIsLoading]);
 
     if (isLoading) {
         return (
@@ -30,8 +38,10 @@ function DecadesPage() {
             );
         }
         return (
-            <div >
-
+            <div>
+                <div className='mx-auto background_box p-5'>
+                    <h1>DecadesPage</h1>
+                </div>
             </div>
         );
     }
