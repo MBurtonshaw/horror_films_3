@@ -69,7 +69,9 @@ function Decades(props) {
     } else {
         if (error) {
             return (
-                <Error message={error} />
+                <div>
+                    <Error message={error} />
+                </div>
             );
         }
         if (movies.length > 0) {
@@ -83,7 +85,7 @@ function Decades(props) {
             );
         } else {
             return (
-                <div className='py-5 my-5 mx-auto'>
+                <div>
                     <NotFound message={url} />
                 </div>
             );

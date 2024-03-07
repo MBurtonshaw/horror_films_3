@@ -53,9 +53,7 @@ function Genre(props) {
             );
         } else {
             return (
-                <div className='py-5 my-5 mx-auto'>
-                    <NotFound message={url} />
-                </div>
+                <NotFound message={url} />
             );
         }
     }

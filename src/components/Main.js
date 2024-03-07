@@ -34,7 +34,7 @@ function Main(props) {
         }
         return (
             <div>
-                <div className='mx-auto background_box p-5'>
+                <div className='mx-auto background_box py-5'>
                     <h1>Main</h1>
                 </div>
             </div>

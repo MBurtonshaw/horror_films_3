@@ -49,7 +49,7 @@ function Title(props) {
             );
         } else {
             return (
-                <div className='py-5 my-5 mx-auto'>
+                <div>
                     <NotFound message={url} />
                 </div>
             );

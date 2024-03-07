@@ -1,49 +1,7 @@
 import { React } from 'react';
 
 function Header(props) {
-    /* if (props.user === '' || props.user === undefined) { */
-    return (
-        <div className='row align-items-start'>
-            <div className='col'></div>
-            <div id='Header' className='container col'>
-                <h1 className='w-100 m-auto'><a href='/' className='nonchalant'>Horror Films</a></h1>
-                <div className="dropdown w-100 m-auto my-3">
-                    <button className="btn " type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <img src='../photos/menu_icon.png' className='width_adjuster m-auto' />
-                    </button>
-                    <ul className="dropdown-menu text-center w-100 m-auto">
-                        <li>
-                            <button className="dropdown-item" type="button">
-                                <a href='/'>Home</a>
-                            </button>
-                        </li>
-                        <li>
-                            <button className="dropdown-item" type="button">
-                                <a href='/titles'>Titles</a>
-                            </button>
-                        </li>
-                        <li>
-                            <button className="dropdown-item" type="button">
-                                <a href='/genres'>Genres</a>
-                            </button>
-                        </li>
-                        <li>
-                            <button className="dropdown-item" type="button">
-                                <a href='/decades'>Decades</a>
-                            </button>
-                        </li>
-                        <li>
-                            <button className="dropdown-item" type="button">
-                                <a href='/login'>Login</a>
-                            </button>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div className='col'></div>
-        </div>
-    );
-    /* } else {
+    if (props.user === '' || props.user === undefined) {
         return (
             <div className='row align-items-start'>
                 <div className='col'></div>
@@ -76,12 +34,7 @@ function Header(props) {
                             </li>
                             <li>
                                 <button className="dropdown-item" type="button">
-                                    <a href='/login'>My List</a>
-                                </button>
-                            </li>
-                            <li>
-                                <button className="dropdown-item" type="button">
-                                    <a href='/login'>Logout</a>
+                                    <a href='/login'>Login</a>
                                 </button>
                             </li>
                         </ul>
@@ -90,7 +43,54 @@ function Header(props) {
                 <div className='col'></div>
             </div>
         );
-    } */
+    } else {
+        return (
+            <div className='row align-items-start'>
+                <div className='col'></div>
+                <div id='Header' className='container col'>
+                    <h1 className='w-100 m-auto'><a href='/' className='nonchalant'>Horror Films</a></h1>
+                    <div className="dropdown w-100 m-auto my-3">
+                        <button className="btn " type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src='../photos/menu_icon.png' className='width_adjuster m-auto' />
+                        </button>
+                        <ul className="dropdown-menu text-center w-100 m-auto">
+                            <li>
+                                <button className="dropdown-item" type="button">
+                                    <a href='/'>Home</a>
+                                </button>
+                            </li>
+                            <li>
+                                <button className="dropdown-item" type="button">
+                                    <a href='/titles'>Titles</a>
+                                </button>
+                            </li>
+                            <li>
+                                <button className="dropdown-item" type="button">
+                                    <a href='/genres'>Genres</a>
+                                </button>
+                            </li>
+                            <li>
+                                <button className="dropdown-item" type="button">
+                                    <a href='/decades'>Decades</a>
+                                </button>
+                            </li>
+                            <li>
+                                <button className="dropdown-item" type="button">
+                                    <a href='/list'>My List</a>
+                                </button>
+                            </li>
+                            <li>
+                                <button className="dropdown-item" type="button">
+                                    <a href='/logout'>Logout</a>
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div className='col'></div>
+            </div>
+        );
+    }
 }
 
 export default Header;

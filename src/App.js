@@ -1,12 +1,10 @@
 import { React, useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import withContext, { Provider } from './contexts/context';
-import Home from './components/Home';
 import Title from './components/Title';
 import TitlePage from './components/TitlePage';
 import Genre from './components/Genre';
 import GenrePage from './components/GenrePage';
-import movies from './movies.json';
 
 import Results from './components/Results';
 import Decades from './components/Decades';
@@ -18,13 +16,13 @@ import Login from './components/Login';
 import Logout from './components/Logout';
 import Footer from './components/Footer';
 import Header from './components/Header';
+import Main from './components/Main';
 import Cookies from 'js-cookie';
 
 /**************************************************************************************
     WRAPPING COMPONENTS IN CONTEXT
 ***************************************************************************************/
 
-const HomeWithContext = withContext(Home);
 const DecadesWithContext = withContext(Decades);
 const GenreWithContext = withContext(Genre);
 const TitleWithContext = withContext(Title);
@@ -36,17 +34,17 @@ const ListWithContext = withContext(List);
 const LoginWithContext = withContext(Login);
 const LogoutWithContext = withContext(Logout);
 const RegisterWithContext = withContext(Register);
+const MainWithContext = withContext(Main);
 
 function App() {
   /**************************************************************************************
       STATE AND ASYNC FUNCTIONS
   ***************************************************************************************/
   let [user, setUser] = useState('');
-  let [genres, setGenres] = useState('');
   let [isLoading, setIsLoading] = useState(true);
 
 
-  /* function getData() {
+   function getData() {
       if (!document.cookie) {
       setUser('');
     } else {
@@ -62,9 +60,9 @@ function App() {
         }
       }
     }
-  } */
+  } 
 
-  /*useEffect(() => { getData() }, [ setUser ]) */
+  useEffect(() => { getData() }, [ setUser ]) 
 
   // used below in the NotFound component
   let url = window.location.pathname;
@@ -74,16 +72,16 @@ function App() {
   ***************************************************************************************/
 
   return (
-    <div id='app_div' className='my-5'>
+    <div id='app_div' className='my-5 w-75 mx-auto'>
       {/* passing user state to Header as props */}
-      <Header />
+      <Header user={user}/>
       <BrowserRouter>
         <Provider>
           <Routes>
             <Route
               strict path='/'
               element={
-                <HomeWithContext user={user} />
+                <MainWithContext user={user} />
               }
             />
             <Route
