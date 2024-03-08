@@ -160,7 +160,7 @@ function Main(props) {
     function titles_carousel() {
         let titles = props.context.data.movies.movies;
         return (
-            <div id="titlesCarousel" className="carousel slide main_carousel my-3">
+            <div id="titlesCarousel" className="carousel slide main_carousel my-5 mt-3">
 
                 <h4 className='dosis-text-header my-4'>Full Catalogue</h4>
                 <div className="carousel-indicators">
