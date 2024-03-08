@@ -167,7 +167,7 @@ function Main(props) {
                     {
                         titles.map(
                             (item, i) => {
-                                if (item.id === 1) {
+                                if (item.id === 1) { 
                                     return (
                                         <button key={i} type="button" data-bs-target="#titlesCarousel" data-bs-slide-to="1" className="active" aria-current="true" aria-label="Slide 1"></button>
                                     );
