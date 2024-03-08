@@ -32,6 +32,29 @@ body:after {
   background-size: cover;
 }
 
+.dosis-text {
+  font-family: "Dosis", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 200;
+  font-style: normal;
+  letter-spacing: 0.1em;
+}
+
+.main_carousel {
+  width: 75%;
+  margin: auto;
+  padding: 4em 5em;
+}
+
+
+.dosis-text-header {
+  font-family: "Dosis", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: 0.1em;
+}
+
 .background_box {
   background-color: rgb(0, 4, 8, 0.7);
 }
