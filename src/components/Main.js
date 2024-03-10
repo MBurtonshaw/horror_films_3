@@ -25,9 +25,9 @@ function Main(props) {
     function carousel_filler(title, href, src, id) {
         if (id === 1) {
             return (
-                <div key={id} className="carousel-item active">
+                <div key={id} className="carousel-item active background_box_2 rounded p-3">
                     <a href={href}>
-                        <img src={src} className="d-block w-100" alt="..." />
+                        <img src={src} className="m-auto w-100 p-3 rounded_photo" alt="..." />
                         <div className="carousel-caption d-none d-md-block">
                             <h5>{title}</h5>
                         </div>
@@ -36,9 +36,9 @@ function Main(props) {
             );
         } else {
             return (
-                <div key={id} className="carousel-item">
+                <div key={id} className="carousel-item background_box_2 rounded p-3">
                     <a href={href}>
-                        <img src={src} className="d-block w-100" alt="..." />
+                        <img src={src} className="m-auto w-100 p-3" alt="..." />
                         <div className="carousel-caption d-none d-md-block">
                             <h5>{title}</h5>
                         </div>
@@ -49,43 +49,92 @@ function Main(props) {
     }
 
     function genre_carousel() {
-        let genres = props.context.data.movies.genres;
-        return (
-            <div id="genreCarousel" className="carousel slide main_carousel">
 
-                <h4 className='dosis-text-header my-4'>Genres</h4>
-                <div className="carousel-indicators">
-                    {
-                        genres.map(
-                            (item, i) => {
-                                if (item.id === 1) {
+        let genres = props.context.data.movies.genres;
+        if (window.innerWidth < 992) {
+            return (
+                <div id="genreCarousel" className="carousel slide small_carousel">
+                    <h4 className='dosis-text-header my-4'>Genres</h4>
+                    <div>
+                        <div className="carousel-indicators">
+                            {
+                                genres.map(
+                                    (item, i) => {
+                                        if (item.id === 1) {
+                                            return (
+                                                <button key={i} type="button" data-bs-target="#genreCarousel" data-bs-slide-to="1" className="active" aria-current="true" aria-label="Slide 1"></button>
+                                            );
+                                        } else if (item.id === genres.length) {
+                                            return (
+                                                <button key={i} type="button" data-bs-target="#genreCarousel" data-bs-slide-to="0" aria-label={`Slide 18`}></button>
+                                            );
+                                        } else {
+                                            return (
+                                                <button key={i} type="button" data-bs-target="#genreCarousel" data-bs-slide-to={item.id} aria-label={`Slide ${item.id}`}></button>
+                                            );
+                                        }
+                                    }
+                                )
+                            }
+                        </div>
+                        <div className="carousel-inner inner_width_adj">
+                            {
+                                genres.map((item, i) => {
                                     return (
-                                        <button key={i} type="button" data-bs-target="#genreCarousel" data-bs-slide-to="1" className="active" aria-current="true" aria-label="Slide 1"></button>
-                                    );
-                                } else if (item.id === 18) {
-                                    return (
-                                        <button key={i} type="button" data-bs-target="#genreCarousel" data-bs-slide-to="0" aria-label={`Slide 18`}></button>
-                                    );
-                                } else {
-                                    return (
-                                        <button key={i} type="button" data-bs-target="#genreCarousel" data-bs-slide-to={item.id} aria-label={`Slide ${item.id}`}></button>
+                                        carousel_filler(genres[i].name, `/genres/${genres[i].name.toLowerCase()}`, `../photos/genres/${genres[i].name.toLowerCase()}.jpg`, genres[i].id)
                                     );
                                 }
+                                )
                             }
-                        )
-                    }
+                        </div>
+                    </div>
+                    <button className="carousel-control-prev" type="button" data-bs-target="#genreCarousel" data-bs-slide="prev">
+                        <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span className="visually-hidden">Previous</span>
+                    </button>
+                    <button className="carousel-control-next" type="button" data-bs-target="#genreCarousel" data-bs-slide="next">
+                        <span className="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span className="visually-hidden">Next</span>
+                    </button>
                 </div>
-                <div className="carousel-inner">
-                    {
-                        genres.map((item, i) => {
-                            return (
-                                carousel_filler(genres[i].name, `/genres/${genres[i].name.toLowerCase()}`, `../photos/genres/${genres[i].name.toLowerCase()}.jpg`, genres[i].id)
-                            );
+            );
+        }
+        return (
+            <div id="genreCarousel" className="carousel slide main_carousel">
+                <h4 className='dosis-text-header my-4'>Genres</h4>
+                <div>
+                    <div className="carousel-indicators">
+                        {
+                            genres.map(
+                                (item, i) => {
+                                    if (item.id === 1) {
+                                        return (
+                                            <button key={i} type="button" data-bs-target="#genreCarousel" data-bs-slide-to="1" className="active" aria-current="true" aria-label="Slide 1"></button>
+                                        );
+                                    } else if (item.id === genres.length) {
+                                        return (
+                                            <button key={i} type="button" data-bs-target="#genreCarousel" data-bs-slide-to="0" aria-label={`Slide 18`}></button>
+                                        );
+                                    } else {
+                                        return (
+                                            <button key={i} type="button" data-bs-target="#genreCarousel" data-bs-slide-to={item.id} aria-label={`Slide ${item.id}`}></button>
+                                        );
+                                    }
+                                }
+                            )
                         }
-                        )
-                    }
+                    </div>
+                    <div className="carousel-inner inner_width_adj">
+                        {
+                            genres.map((item, i) => {
+                                return (
+                                    carousel_filler(genres[i].name, `/genres/${genres[i].name.toLowerCase()}`, `../photos/genres/${genres[i].name.toLowerCase()}.jpg`, genres[i].id)
+                                );
+                            }
+                            )
+                        }
+                    </div>
                 </div>
-
                 <button className="carousel-control-prev" type="button" data-bs-target="#genreCarousel" data-bs-slide="prev">
                     <span className="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span className="visually-hidden">Previous</span>
@@ -94,7 +143,6 @@ function Main(props) {
                     <span className="carousel-control-next-icon" aria-hidden="true"></span>
                     <span className="visually-hidden">Next</span>
                 </button>
-
             </div>
         );
     }
@@ -109,9 +157,53 @@ function Main(props) {
             '10s',
             '20s'
         ];
+        if (window.innerWidth < 992) {
+            return (
+                <div id="decadesCarousel" className="carousel slide small_carousel">
+                    <h4 className='dosis-text-header my-4'>Decades</h4>
+                    <div className="carousel-indicators">
+                        {
+                            decades.map(
+                                (item, i) => {
+                                    if (i === 0) {
+                                        return (
+                                            <button key={i} type="button" data-bs-target="#decadesCarousel" data-bs-slide-to={i} className="active" aria-current="true" aria-label="Slide 1"></button>
+                                        );
+                                    } else if (i === decades.length) {
+                                        return (
+                                            <button key={i} type="button" data-bs-target="#decadesCarousel" data-bs-slide-to="0" aria-label={`Slide ${i}`}></button>
+                                        );
+                                    } else {
+                                        return (
+                                            <button key={i} type="button" data-bs-target="#decadesCarousel" data-bs-slide-to={i} aria-label={`Slide ${i}`}></button>
+                                        );
+                                    }
+                                }
+                            )
+                        }
+                    </div>
+                    <div className="carousel-inner inner_width_adj">
+                        {
+                            decades.map((item, i) => {
+                                return (
+                                    carousel_filler(decades[i], `/decades/${decades[i]}`, `../photos/decades/${decades[i]}.jpg`, i)
+                                );
+                            })
+                        }
+                    </div>
+                    <button className="carousel-control-prev" type="button" data-bs-target="#decadesCarousel" data-bs-slide="prev">
+                        <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span className="visually-hidden">Previous</span>
+                    </button>
+                    <button className="carousel-control-next" type="button" data-bs-target="#decadesCarousel" data-bs-slide="next">
+                        <span className="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span className="visually-hidden">Next</span>
+                    </button>
+                </div>
+            );
+        }
         return (
             <div id="decadesCarousel" className="carousel slide main_carousel my-3 mt-5">
-
                 <h4 className='dosis-text-header my-4'>Decades</h4>
                 <div className="carousel-indicators">
                     {
@@ -134,7 +226,7 @@ function Main(props) {
                         )
                     }
                 </div>
-                <div className="carousel-inner">
+                <div className="carousel-inner inner_width_adj">
                     {
                         decades.map((item, i) => {
                             return (
@@ -143,7 +235,6 @@ function Main(props) {
                         })
                     }
                 </div>
-
                 <button className="carousel-control-prev" type="button" data-bs-target="#decadesCarousel" data-bs-slide="prev">
                     <span className="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span className="visually-hidden">Previous</span>
@@ -152,22 +243,66 @@ function Main(props) {
                     <span className="carousel-control-next-icon" aria-hidden="true"></span>
                     <span className="visually-hidden">Next</span>
                 </button>
-
             </div>
         );
     }
 
     function titles_carousel() {
         let titles = props.context.data.movies.movies;
+        if (window.innerWidth < 992) {
+            return (
+                <div id="titlesCarousel" className="carousel slide small_carousel">
+                    <h4 className='dosis-text-header my-4'>Full Catalogue</h4>
+                    <div className="carousel-indicators">
+                        {
+                            titles.map(
+                                (item, i) => {
+                                    if (item.id === 1) {
+                                        return (
+                                            <button key={i} type="button" data-bs-target="#titlesCarousel" data-bs-slide-to="1" className="active" aria-current="true" aria-label="Slide 1"></button>
+                                        );
+                                    } else if (item.id === titles.length) {
+                                        return (
+                                            <button key={i} type="button" data-bs-target="#titlesCarousel" data-bs-slide-to="0" aria-label={`Slide ${item.id}`}></button>
+                                        );
+                                    } else {
+                                        return (
+                                            <button key={i} type="button" data-bs-target="#titlesCarousel" data-bs-slide-to={item.id} aria-label={`Slide ${item.id}`}></button>
+                                        );
+                                    }
+                                }
+                            )
+                        }
+                    </div>
+                    <div className="carousel-inner inner_width_adj">
+                        {
+                            titles.map((item, i) => {
+                                return (
+                                    carousel_filler('', `/titles/${titles[i].url}`, `../photos/titles/${titles[i].url}_rectangle.jpg`, titles[i].id)
+                                );
+                            }
+                            )
+                        }
+                    </div>
+                    <button className="carousel-control-prev" type="button" data-bs-target="#titlesCarousel" data-bs-slide="prev">
+                        <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span className="visually-hidden">Previous</span>
+                    </button>
+                    <button className="carousel-control-next" type="button" data-bs-target="#titlesCarousel" data-bs-slide="next">
+                        <span className="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span className="visually-hidden">Next</span>
+                    </button>
+                </div>
+            );
+        }
         return (
             <div id="titlesCarousel" className="carousel slide main_carousel my-5 mt-3">
-
                 <h4 className='dosis-text-header my-4'>Full Catalogue</h4>
                 <div className="carousel-indicators">
                     {
                         titles.map(
                             (item, i) => {
-                                if (item.id === 1) { 
+                                if (item.id === 1) {
                                     return (
                                         <button key={i} type="button" data-bs-target="#titlesCarousel" data-bs-slide-to="1" className="active" aria-current="true" aria-label="Slide 1"></button>
                                     );
@@ -184,7 +319,7 @@ function Main(props) {
                         )
                     }
                 </div>
-                <div className="carousel-inner">
+                <div className="carousel-inner inner_width_adj">
                     {
                         titles.map((item, i) => {
                             return (
@@ -194,7 +329,6 @@ function Main(props) {
                         )
                     }
                 </div>
-
                 <button className="carousel-control-prev" type="button" data-bs-target="#titlesCarousel" data-bs-slide="prev">
                     <span className="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span className="visually-hidden">Previous</span>
@@ -203,7 +337,6 @@ function Main(props) {
                     <span className="carousel-control-next-icon" aria-hidden="true"></span>
                     <span className="visually-hidden">Next</span>
                 </button>
-
             </div>
         );
     }
@@ -219,7 +352,7 @@ function Main(props) {
             );
         }
         return (
-            <div className='background_box'>
+            <div className='background_box rounded_large'>
                 <div>
                     {genre_carousel()}
                 </div>

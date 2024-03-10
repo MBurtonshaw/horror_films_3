@@ -2,13 +2,8 @@ import { React, useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import withContext, { Provider } from './contexts/context';
 import Title from './components/Title';
-import TitlePage from './components/TitlePage';
 import Genre from './components/Genre';
-import GenrePage from './components/GenrePage';
-
-import Results from './components/Results';
 import Decades from './components/Decades';
-import DecadesPage from './components/DecadesPage';
 import Register from './components/Register';
 import NotFound from './components/NotFound';
 import List from './components/List';
@@ -26,10 +21,6 @@ import Cookies from 'js-cookie';
 const DecadesWithContext = withContext(Decades);
 const GenreWithContext = withContext(Genre);
 const TitleWithContext = withContext(Title);
-const TitlePageWithContext = withContext(TitlePage);
-const GenrePageWithContext = withContext(GenrePage);
-const ResultsWithContext = withContext(Results);
-const DecadesPageWithContext = withContext(DecadesPage);
 const ListWithContext = withContext(List);
 const LoginWithContext = withContext(Login);
 const LogoutWithContext = withContext(Logout);
@@ -44,8 +35,8 @@ function App() {
   let [isLoading, setIsLoading] = useState(true);
 
 
-   function getData() {
-      if (!document.cookie) {
+  function getData() {
+    if (!document.cookie) {
       setUser('');
     } else {
       let logger = Cookies.get('signedIn?');
@@ -60,9 +51,26 @@ function App() {
         }
       }
     }
-  } 
+    setIsLoading(false);
+  }
 
-  useEffect(() => { getData() }, [ setUser ]) 
+  useEffect(() => { getData() }, [setUser])
+
+  function returner() {
+    if (window.innerWidth < 1400) {
+      if (window.innerWidth < 922) {
+        return (
+          'my-5 w-100 mx-auto'
+        );
+      }
+      return (
+        'my-5 w-75 mx-auto'
+      );
+    }
+    return (
+      'my-5 w-50 mx-auto'
+    );
+  }
 
   // used below in the NotFound component
   let url = window.location.pathname;
@@ -70,101 +78,77 @@ function App() {
   /**************************************************************************************
       ROUTING
   ***************************************************************************************/
-
-  return (
-    <div id='app_div' className='my-5 w-75 mx-auto'>
-      {/* passing user state to Header as props */}
-      <Header user={user}/>
-      <BrowserRouter>
-        <Provider>
-          <Routes>
-            <Route
-              strict path='/'
-              element={
-                <MainWithContext user={user} />
-              }
-            />
-            <Route
-              path='/titles/:url'
-              element={
-                <TitleWithContext user={user} />
-              }
-            />
-            <Route
-              path='/titles'
-              element={
-                <TitlePageWithContext user={user} />
-              }
-            />
-            <Route
-              path='/genres/:url'
-              element={
-                <GenreWithContext user={user} />
-              }
-            />
-            <Route
-              path='/genres'
-              element={
-                <GenrePageWithContext user={user} />
-              }
-            />
-            <Route
-              path='/results/:url'
-              element={
-                <ResultsWithContext user={user} />
-              }
-            />
-            <Route
-              path='/decades'
-              element={
-                <DecadesPageWithContext user={user}
-                />
-              }
-            />
-            <Route
-              path='/decades/:url'
-              element={
-                <DecadesWithContext user={user} />
-              }
-            />
-            <Route
-              path='/list'
-              element={
-                <ListWithContext user={user} />
-              }
-            />
-            <Route
-              path='/login'
-              element={
-                <LoginWithContext user={user} />
-              }
-            />
-            <Route
-              path='/logout'
-              element={
-                <LogoutWithContext user={user} />
-              }
-            />
-            <Route
-              path='/register'
-              element={
-                <RegisterWithContext user={user} />
-              }
-            />
-            <Route
-              path='*'
-              element={
-                <div className='py-5 my-5 mx-auto'>
-                  <NotFound message={url} user={user} />
-                </div>
-              }
-            />
-          </Routes>
-        </Provider>
-      </BrowserRouter>
-      <Footer />
-    </div>
-  );
+  if (isLoading === false) {
+    return (
+      <div className={returner()}>
+        {/* passing user state to Header as props */}
+        <Header user={user} />
+        <BrowserRouter>
+          <Provider>
+            <Routes>
+              <Route
+                strict path='/'
+                element={
+                  <MainWithContext user={user} />
+                }
+              />
+              <Route
+                path='/titles/:url'
+                element={
+                  <TitleWithContext user={user} />
+                }
+              />
+              <Route
+                path='/genres/:url'
+                element={
+                  <GenreWithContext user={user} />
+                }
+              />
+              <Route
+                path='/decades/:url'
+                element={
+                  <DecadesWithContext user={user} />
+                }
+              />
+              <Route
+                path='/list'
+                element={
+                  <ListWithContext user={user} />
+                }
+              />
+              <Route
+                path='/login'
+                element={
+                  <LoginWithContext user={user} />
+                }
+              />
+              <Route
+                path='/logout'
+                element={
+                  <LogoutWithContext user={user} />
+                }
+              />
+              <Route
+                path='/register'
+                element={
+                  <RegisterWithContext user={user} />
+                }
+              />
+              <Route
+                path='*'
+                element={
+                  <div className='py-5 my-5 mx-auto'>
+                    <NotFound message={url} user={user} />
+                  </div>
+                }
+              />
+            </Routes>
+          </Provider>
+        </BrowserRouter>
+        <Footer />
+      </div>
+    );
+  }
 }
 
 export default App;

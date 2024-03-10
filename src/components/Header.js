@@ -11,30 +11,20 @@ function Header(props) {
                         <button className="btn " type="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <img src='../photos/menu_icon.png' className='width_adjuster m-auto' />
                         </button>
-                        <ul className="dropdown-menu text-center w-100 m-auto">
+                        <ul className="dropdown-menu text-center w-100 m-auto header_background">
                             <li>
                                 <button className="dropdown-item" type="button">
-                                    <a href='/'>Home</a>
+                                    <a className='header_item' href='/'>Home</a>
                                 </button>
                             </li>
                             <li>
                                 <button className="dropdown-item" type="button">
-                                    <a href='/titles'>Titles</a>
+                                    <a className='header_item' href='/login'>Login</a>
                                 </button>
                             </li>
                             <li>
                                 <button className="dropdown-item" type="button">
-                                    <a href='/genres'>Genres</a>
-                                </button>
-                            </li>
-                            <li>
-                                <button className="dropdown-item" type="button">
-                                    <a href='/decades'>Decades</a>
-                                </button>
-                            </li>
-                            <li>
-                                <button className="dropdown-item" type="button">
-                                    <a href='/login'>Login</a>
+                                    <a className='header_item' href='/register'>Register</a>
                                 </button>
                             </li>
                         </ul>
@@ -53,38 +43,25 @@ function Header(props) {
                         <button className="btn " type="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <img src='../photos/menu_icon.png' className='width_adjuster m-auto' />
                         </button>
-                        <ul className="dropdown-menu text-center w-100 m-auto">
-                            <li>
-                                <button className="dropdown-item" type="button">
-                                    <a href='/'>Home</a>
-                                </button>
-                            </li>
-                            <li>
-                                <button className="dropdown-item" type="button">
-                                    <a href='/titles'>Titles</a>
-                                </button>
-                            </li>
-                            <li>
-                                <button className="dropdown-item" type="button">
-                                    <a href='/genres'>Genres</a>
-                                </button>
-                            </li>
-                            <li>
-                                <button className="dropdown-item" type="button">
-                                    <a href='/decades'>Decades</a>
-                                </button>
-                            </li>
-                            <li>
-                                <button className="dropdown-item" type="button">
-                                    <a href='/list'>My List</a>
-                                </button>
-                            </li>
-                            <li>
-                                <button className="dropdown-item" type="button">
-                                    <a href='/logout'>Logout</a>
-                                </button>
-                            </li>
-                        </ul>
+                        <div className='header_wrapper'>
+                            <ul className="dropdown-menu text-center w-100 m-auto header_background">
+                                <li>
+                                    <button className="dropdown-item" type="button">
+                                        <a className='header_item' href='/'>Home</a>
+                                    </button>
+                                </li>
+                                <li>
+                                    <button className="dropdown-item" type="button">
+                                        <a className='header_item' href='/list'>My List</a>
+                                    </button>
+                                </li>
+                                <li>
+                                    <button className="dropdown-item" type="button">
+                                        <a className='header_item' href='/logout'>Logout</a>
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
                 <div className='col'></div>

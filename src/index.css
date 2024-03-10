@@ -32,6 +32,15 @@ body:after {
   background-size: cover;
 }
 
+
+.btn {
+  border: none;
+}
+
+.header_wrapper {
+  border: 1px solid red;
+}
+
 .dosis-text {
   font-family: "Dosis", sans-serif;
   font-optical-sizing: auto;
@@ -46,6 +55,12 @@ body:after {
   padding: 4em 5em;
 }
 
+.small_carousel {
+  width: 100%;
+  margin: auto;
+  margin: 1em 0 1em 0;
+  padding: 3em;
+}
 
 .dosis-text-header {
   font-family: "Dosis", sans-serif;
@@ -57,6 +72,33 @@ body:after {
 
 .background_box {
   background-color: rgb(0, 4, 8, 0.7);
+}
+
+.background_box_2 {
+  background-color: rgb(0, 4, 8);
+}
+
+.header_background {
+  background-color: rgb(0, 6, 12);
+  border: 1px solid rgb(233, 112, 90);
+}
+
+.header_item {
+  text-decoration: none;
+  color: white;
+}
+
+.inner_width_adj {
+  width: 90%;
+  margin: auto;
+}
+
+.dropdown-item:hover {
+  background-color: rgb(12, 28, 48);
+}
+
+.dropdown-item:active {
+  background-color: rgb(150, 68, 110);
 }
 
 .main_header_1 {
@@ -72,8 +114,22 @@ body:after {
   color: white;
 }
 
+.rounded {
+  border: 1px solid slateblue;
+  border-radius: 15px;
+}
+
+
+.rounded_photo {
+  border-radius: 20px;
+}
+
+.rounded_large {
+  border-radius: 30px;
+}
+
 .width_adjuster {
-  width: 10%;
+  width: 15%;
 }
 
 @media only screen and (max-width: 992px) {

@@ -62,6 +62,181 @@ function Decades(props) {
 
     useEffect(() => { getData() }, [setMovies, setIsLoading]);
 
+
+    function carousel_filler(title, href, src, id) {
+        if (id === 1) {
+            if (window.innerWidth < 1400) {
+                if (window.innerWidth < 992) {
+                    return (
+                        <div key={id} className="carousel-item active background_box_2 rounded p-3">
+                            <a href={href}>
+                                <img src={src} className="m-auto w-100 rounded_photo" alt="..." />
+                                <div className="carousel-caption d-none d-md-block">
+                                    <h5>{title}</h5>
+                                </div>
+                            </a>
+                        </div>
+                    );
+                }
+                return (
+                    <div key={id} className="carousel-item active background_box_2 rounded p-4">
+                        <a href={href}>
+                            <img src={src} className="m-auto w-100 rounded_photo" alt="..." />
+                            <div className="carousel-caption d-none d-md-block">
+                                <h5>{title}</h5>
+                            </div>
+                        </a>
+                    </div>
+                );
+            }
+            return (
+                <div key={id} className="carousel-item active background_box_2 rounded p-2">
+                    <a href={href}>
+                        <img src={src} className="m-auto w-100 p-3 rounded_photo" alt="..." />
+                        <div className="carousel-caption d-none d-md-block">
+                            <h5>{title}</h5>
+                        </div>
+                    </a>
+                </div>
+            );
+        } else {
+            if (window.innerWidth < 1400) {
+                if (window.innerWidth < 992) {
+                    return (
+                        <div key={id} className="carousel-item background_box_2 rounded p-3">
+                            <a href={href}>
+                                <img src={src} className="m-auto w-100 rounded_photo" alt="..." />
+                                <div className="carousel-caption d-none d-md-block">
+                                    <h5>{title}</h5>
+                                </div>
+                            </a>
+                        </div>
+                    );
+                }
+                return (
+                    <div key={id} className="carousel-item background_box_2 rounded p-4">
+                        <a href={href}>
+                            <img src={src} className="m-auto w-100 rounded_photo" alt="..." />
+                            <div className="carousel-caption d-none d-md-block">
+                                <h5>{title}</h5>
+                            </div>
+                        </a>
+                    </div>
+                );
+            }
+            return (
+                <div key={id} className="carousel-item background_box_2 rounded p-3">
+                    <a href={href}>
+                        <img src={src} className="m-auto w-100 p-3 rounded_photo" alt="..." />
+                        <div className="carousel-caption d-none d-md-block">
+                            <h5>{title}</h5>
+                        </div>
+                    </a>
+                </div>
+            );
+        }
+    }
+
+    function decades_carousel() {
+        if (movies) {
+            if (window.innerWidth < 992) {
+                return (
+                    <div id="decadesCarousel" className="carousel slide small_carousel">
+                        <h4 className='dosis-text-header'>{`Decade: ${props.context.actions.capitalizeFirstLetter(url)}`}</h4>
+                        <div>
+                            <div className="carousel-indicators">
+                                {
+                                    movies.map(
+                                        (item, i) => {
+                                            if (i === 1) {
+                                                return (
+                                                    <button key={i} type="button" data-bs-target="#decadesCarousel" data-bs-slide-to="1" className="active" aria-current="true" aria-label="Slide 1"></button>
+                                                );
+                                            } else if (i === movies.length) {
+                                                return (
+                                                    <button key={i} type="button" data-bs-target="#decadesCarousel" data-bs-slide-to="0" aria-label={`Slide ${i}`}></button>
+                                                );
+                                            } else {
+                                                return (
+                                                    <button key={i} type="button" data-bs-target="#decadesCarousel" data-bs-slide-to={i} aria-label={`Slide ${i}`}></button>
+                                                );
+                                            }
+                                        }
+                                    )
+                                }
+                            </div>
+                            <div className="carousel-inner inner_width_adj">
+                                {
+                                    movies.map((item, i) => {
+                                        return (
+                                            carousel_filler('', `/titles/${item.url}`, `../photos/titles/${item.url}_rectangle.jpg`, i)
+                                        );
+                                    }
+                                    )
+                                }
+                            </div>
+                        </div>
+                        <button className="carousel-control-prev" type="button" data-bs-target="#decadesCarousel" data-bs-slide="prev">
+                            <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span className="visually-hidden">Previous</span>
+                        </button>
+                        <button className="carousel-control-next" type="button" data-bs-target="#decadesCarousel" data-bs-slide="next">
+                            <span className="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span className="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                );
+
+            }
+            return (
+                <div id="decadesCarousel" className="carousel slide main_carousel">
+                    <h4 className='dosis-text-header'>{`Decade: ${props.context.actions.capitalizeFirstLetter(url)}`}</h4>
+                    <div>
+                        <div className="carousel-indicators">
+                            {
+                                movies.map(
+                                    (item, i) => {
+                                        if (i === 1) {
+                                            return (
+                                                <button key={i} type="button" data-bs-target="#decadesCarousel" data-bs-slide-to="1" className="active" aria-current="true" aria-label="Slide 1"></button>
+                                            );
+                                        } else if (i === movies.length) {
+                                            return (
+                                                <button key={i} type="button" data-bs-target="#decadesCarousel" data-bs-slide-to="0" aria-label={`Slide ${i}`}></button>
+                                            );
+                                        } else {
+                                            return (
+                                                <button key={i} type="button" data-bs-target="#decadesCarousel" data-bs-slide-to={i} aria-label={`Slide ${i}`}></button>
+                                            );
+                                        }
+                                    }
+                                )
+                            }
+                        </div>
+                        <div className="carousel-inner inner_width_adj">
+                            {
+                                movies.map((item, i) => {
+                                    return (
+                                        carousel_filler('', `/titles/${item.url}`, `../photos/titles/${item.url}_rectangle.jpg`, i)
+                                    );
+                                }
+                                )
+                            }
+                        </div>
+                    </div>
+                    <button className="carousel-control-prev" type="button" data-bs-target="#decadesCarousel" data-bs-slide="prev">
+                        <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span className="visually-hidden">Previous</span>
+                    </button>
+                    <button className="carousel-control-next" type="button" data-bs-target="#decadesCarousel" data-bs-slide="next">
+                        <span className="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span className="visually-hidden">Next</span>
+                    </button>
+                </div>
+            );
+        }
+    }
+
     if (isLoading) {
         return (
             <Loading />
@@ -76,11 +251,10 @@ function Decades(props) {
         }
         if (movies.length > 0) {
             return (
-                <div>
-                    <div className='mx-auto background_box p-5'>
-                        <h1>Decades</h1>
-                        <h3>{url}</h3>
-                    </div>
+                <div className='background_box rounded_large'>
+                    {
+                        decades_carousel()
+                    }
                 </div>
             );
         } else {
