@@ -42,28 +42,28 @@ function List(props) {
 
     function content_filler() {
         if (filmList) {
-            return(
+            return (
                 filmList.map(
                     (item, i) => {
                         if (window.innerWidth < 992) {
                             if (i === 0) {
                                 return (
                                     <div key={i} className='my-5'>
-                                        <h5 className='w-100'><a className='nonchalant' href={`/titles/${item.url}`}>{item.title}</a></h5>
-                                        <button className='list_button px-3' onClick={() => {
-                                                Cookies.remove(`myList-${user.email}-${item.id}`, { path: `/` });
-                                                window.location.reload();
-                                            }}>Remove</button>
+                                        <h5 className='w-100'><a className='nonchalant dosis-text-list' href={`/titles/${item.url}`}>{item.title}</a></h5>
+                                        <button className='list_button px-3 dosis-text-button' onClick={() => {
+                                            Cookies.remove(`myList-${user.email}-${item.id}`, { path: `/` });
+                                            window.location.reload();
+                                        }}>Remove</button>
                                     </div>
                                 );
                             } else {
                                 return (
                                     <div key={i} className='mt-5'>
-                                        <h5 className='w-100'><a className='nonchalant' href={`/titles/${item.url}`}>{item.title}</a></h5>
-                                        <button className='list_button px-3' onClick={() => {
-                                                Cookies.remove(`myList-${user.email}-${item.id}`, { path: `/` });
-                                                window.location.reload();
-                                            }}>Remove</button>
+                                        <h5 className='w-100'><a className='nonchalant dosis-text-list' href={`/titles/${item.url}`}>{item.title}</a></h5>
+                                        <button className='list_button px-3 dosis-text-button' onClick={() => {
+                                            Cookies.remove(`myList-${user.email}-${item.id}`, { path: `/` });
+                                            window.location.reload();
+                                        }}>Remove</button>
                                     </div>
                                 );
                             }
@@ -72,13 +72,13 @@ function List(props) {
                             return (
                                 <div key={i} className='row justify-content-end'>
                                     <div className='col-4 mt-5 py-2'>
-                                    <h5 className=''><a className='nonchalant' href={`/titles/${item.url}`}>{item.title}</a></h5>
+                                        <h5 className=''><a className='nonchalant dosis-text-list' href={`/titles/${item.url}`}>{item.title}</a></h5>
                                     </div>
                                     <div className='col-4 py-2 mt-5'>
-                                    <button className='list_button px-3' onClick={() => {
-                                                Cookies.remove(`myList-${user.email}-${item.id}`, { path: `/` });
-                                                window.location.reload();
-                                            }}>Remove</button>
+                                        <button className='list_button px-3 dosis-text-button' onClick={() => {
+                                            Cookies.remove(`myList-${user.email}-${item.id}`, { path: `/` });
+                                            window.location.reload();
+                                        }}>Remove</button>
                                     </div>
                                 </div>
                             );
@@ -86,23 +86,23 @@ function List(props) {
                             return (
                                 <div key={i} className='row justify-content-end'>
                                     <div className='col-4 py-2'>
-                                    <h5 className=''><a className='nonchalant' href={`/titles/${item.url}`}>{item.title}</a></h5>
+                                        <h5 className=''><a className='nonchalant dosis-text-list' href={`/titles/${item.url}`}>{item.title}</a></h5>
                                     </div>
                                     <div className='col-4 py-2'>
-                                    <button className='list_button px-3' onClick={() => {
-                                                Cookies.remove(`myList-${user.email}-${item.id}`, { path: `/` });
-                                                window.location.reload();
-                                            }}>Remove</button>
+                                        <button className='list_button px-3 dosis-text-button' onClick={() => {
+                                            Cookies.remove(`myList-${user.email}-${item.id}`, { path: `/` });
+                                            window.location.reload();
+                                        }}>Remove</button>
                                     </div>
                                 </div>
                             );
                         }
-                        
+
                     }
                 )
             );
         } else {
-            return(
+            return (
                 <div className='my-5'>
                     <h3> No movies added to list yet </h3>
                 </div>
@@ -122,7 +122,7 @@ function List(props) {
         }
         return (
             <div>
-                <div className='mx-auto background_box p-5'>
+                <div className='mx-auto background_box p-5 my_list_border'>
                     <h1>My Movie List</h1>
                     {content_filler()}
                 </div>

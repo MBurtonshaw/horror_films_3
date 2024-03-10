@@ -6,7 +6,6 @@ function Header(props) {
             <div className='row align-items-start'>
                 <div className='col'></div>
                 <div id='Header' className='container col'>
-                    <h1 className='w-100 m-auto'><a href='/' className='nonchalant'>Horror Films</a></h1>
                     <div className="dropdown w-100 m-auto my-3">
                         <button className="btn " type="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <img src='../photos/menu_icon.png' className='width_adjuster m-auto' />
@@ -38,7 +37,6 @@ function Header(props) {
             <div className='row align-items-start'>
                 <div className='col'></div>
                 <div id='Header' className='container col'>
-                    <h1 className='w-100 m-auto'><a href='/' className='nonchalant'>Horror Films</a></h1>
                     <div className="dropdown w-100 m-auto my-3">
                         <button className="btn " type="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <img src='../photos/menu_icon.png' className='width_adjuster m-auto' />

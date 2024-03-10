@@ -32,13 +32,24 @@ body:after {
   background-size: cover;
 }
 
+.background_box {
+  background-color: rgb(0, 4, 8, 0.7);
+}
+
+.background_box_2 {
+  background-color: rgb(0, 4, 8);
+}
 
 .btn {
   border: none;
 }
 
-.header_wrapper {
-  border: 1px solid red;
+.dosis-huge {
+  font-family: "Dosis", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: 0.9em;
 }
 
 .dosis-text {
@@ -49,17 +60,20 @@ body:after {
   letter-spacing: 0.1em;
 }
 
-.main_carousel {
-  width: 75%;
-  margin: auto;
-  padding: 4em 5em;
+.dosis-text-list {
+  font-family: "Dosis", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  letter-spacing: 0.08em;
 }
 
-.small_carousel {
-  width: 100%;
-  margin: auto;
-  margin: 1em 0 1em 0;
-  padding: 3em;
+.dosis-text-button {
+  font-family: "Dosis", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: 0.1em;
 }
 
 .dosis-text-header {
@@ -70,12 +84,12 @@ body:after {
   letter-spacing: 0.1em;
 }
 
-.background_box {
-  background-color: rgb(0, 4, 8, 0.7);
+.dropdown-item:hover {
+  background-color: rgb(12, 28, 48);
 }
 
-.background_box_2 {
-  background-color: rgb(0, 4, 8);
+.dropdown-item:active {
+  background-color: rgb(150, 68, 110);
 }
 
 .header_background {
@@ -88,22 +102,25 @@ body:after {
   color: white;
 }
 
+.header_wrapper {
+  border: 1px solid red;
+}
+
 .inner_width_adj {
   width: 90%;
   margin: auto;
 }
+
 .list_button {
   background-color: rgb(197, 84, 105);
   border: 3px solid rgb(62, 37, 64);
   color: white;
 }
 
-.dropdown-item:hover {
-  background-color: rgb(12, 28, 48);
-}
-
-.dropdown-item:active {
-  background-color: rgb(150, 68, 110);
+.main_carousel {
+  width: 75%;
+  margin: auto;
+  padding: 4em 5em;
 }
 
 .main_header_1 {
@@ -112,6 +129,11 @@ body:after {
 
 .main_header_2 {
   margin: 0 0 0.35em -6.5em;
+}
+
+.my_list_border {
+  border: 2px solid slateblue;
+  border-radius: 10px;
 }
 
 .nonchalant {
@@ -124,13 +146,19 @@ body:after {
   border-radius: 15px;
 }
 
+.rounded_large {
+  border-radius: 30px;
+}
 
 .rounded_photo {
   border-radius: 20px;
 }
 
-.rounded_large {
-  border-radius: 30px;
+.small_carousel {
+  width: 100%;
+  margin: auto;
+  margin: 1em 0 1em 0;
+  padding: 3em;
 }
 
 .width_adjuster {
