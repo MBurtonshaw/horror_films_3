@@ -6,7 +6,6 @@ import Cookies from 'js-cookie';
 function List(props) {
     let [isLoading, setIsLoading] = useState(true);
     let [error, setError] = useState('');
-    let [movies, setMovies] = useState('');
     let [filmList, setFilmList] = useState('');
     let [user, setUser] = useState('');
     let finalArray = [];
@@ -41,19 +40,74 @@ function List(props) {
     }
     useEffect(() => { getData() });
 
-
     function content_filler() {
-        return(
-            filmList.map(
-                (item, i) => {
-                    return (
-                        <div key={i}>
-                            <h5><a className='nonchalant' href={`/titles/${item.url}`}>{item.title}</a></h5>
-                        </div>
-                    );
-                }
-            )
-        );
+        if (filmList) {
+            return(
+                filmList.map(
+                    (item, i) => {
+                        if (window.innerWidth < 992) {
+                            if (i === 0) {
+                                return (
+                                    <div key={i} className='my-5'>
+                                        <h5 className='w-100'><a className='nonchalant' href={`/titles/${item.url}`}>{item.title}</a></h5>
+                                        <button className='list_button px-3' onClick={() => {
+                                                Cookies.remove(`myList-${user.email}-${item.id}`, { path: `/` });
+                                                window.location.reload();
+                                            }}>Remove</button>
+                                    </div>
+                                );
+                            } else {
+                                return (
+                                    <div key={i} className='mt-5'>
+                                        <h5 className='w-100'><a className='nonchalant' href={`/titles/${item.url}`}>{item.title}</a></h5>
+                                        <button className='list_button px-3' onClick={() => {
+                                                Cookies.remove(`myList-${user.email}-${item.id}`, { path: `/` });
+                                                window.location.reload();
+                                            }}>Remove</button>
+                                    </div>
+                                );
+                            }
+                        }
+                        if (i === 0) {
+                            return (
+                                <div key={i} className='row justify-content-end'>
+                                    <div className='col-4 mt-5 py-2'>
+                                    <h5 className=''><a className='nonchalant' href={`/titles/${item.url}`}>{item.title}</a></h5>
+                                    </div>
+                                    <div className='col-4 py-2 mt-5'>
+                                    <button className='list_button px-3' onClick={() => {
+                                                Cookies.remove(`myList-${user.email}-${item.id}`, { path: `/` });
+                                                window.location.reload();
+                                            }}>Remove</button>
+                                    </div>
+                                </div>
+                            );
+                        } else {
+                            return (
+                                <div key={i} className='row justify-content-end'>
+                                    <div className='col-4 py-2'>
+                                    <h5 className=''><a className='nonchalant' href={`/titles/${item.url}`}>{item.title}</a></h5>
+                                    </div>
+                                    <div className='col-4 py-2'>
+                                    <button className='list_button px-3' onClick={() => {
+                                                Cookies.remove(`myList-${user.email}-${item.id}`, { path: `/` });
+                                                window.location.reload();
+                                            }}>Remove</button>
+                                    </div>
+                                </div>
+                            );
+                        }
+                        
+                    }
+                )
+            );
+        } else {
+            return(
+                <div className='my-5'>
+                    <h3> No movies added to list yet </h3>
+                </div>
+            );
+        }
     }
 
     if (isLoading) {
@@ -69,7 +123,7 @@ function List(props) {
         return (
             <div>
                 <div className='mx-auto background_box p-5'>
-                    <h1>List</h1>
+                    <h1>My Movie List</h1>
                     {content_filler()}
                 </div>
             </div>

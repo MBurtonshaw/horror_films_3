@@ -43,7 +43,7 @@ function Header(props) {
                         <button className="btn " type="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <img src='../photos/menu_icon.png' className='width_adjuster m-auto' />
                         </button>
-                        <div className='header_wrapper'>
+                       
                             <ul className="dropdown-menu text-center w-100 m-auto header_background">
                                 <li>
                                     <button className="dropdown-item" type="button">
@@ -61,7 +61,7 @@ function Header(props) {
                                     </button>
                                 </li>
                             </ul>
-                        </div>
+                    
                     </div>
                 </div>
                 <div className='col'></div>

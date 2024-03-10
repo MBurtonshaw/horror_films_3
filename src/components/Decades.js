@@ -90,7 +90,7 @@ function Decades(props) {
                 );
             }
             return (
-                <div key={id} className="carousel-item active background_box_2 rounded p-2">
+                <div key={id} className="carousel-item active background_box_2 rounded p-3">
                     <a href={href}>
                         <img src={src} className="m-auto w-100 p-3 rounded_photo" alt="..." />
                         <div className="carousel-caption d-none d-md-block">

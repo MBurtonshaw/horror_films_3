@@ -65,7 +65,7 @@ function Register(props) {
                         <label className='w-100' htmlFor='password'>Password</label>
                         <input type='password' id='password' name='password' value={data.password} onChange={(e) => setData({ ...data, password: e.target.value })}></input>
                     </div>
-                    <button type='submit' onSubmit={registerUser}>Login</button>
+                    <button type='submit' onSubmit={registerUser}>Register</button>
                 </div>
             </form>
         );

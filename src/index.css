@@ -92,6 +92,11 @@ body:after {
   width: 90%;
   margin: auto;
 }
+.list_button {
+  background-color: rgb(197, 84, 105);
+  border: 3px solid rgb(62, 37, 64);
+  color: white;
+}
 
 .dropdown-item:hover {
   background-color: rgb(12, 28, 48);
