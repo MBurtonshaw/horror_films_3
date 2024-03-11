@@ -77,7 +77,7 @@ function App() {
   if (isLoading === false) {
     return (
       <div className='mt-4 w-100 mx-auto'>
-        <h1 className='w-100 m-auto'><a href='/' className='nonchalant dosis-huge'>Horror Films</a></h1>
+        <h1 className='mx-auto'><a href='/' className='nonchalant dosis-huge'>Horror Films</a></h1>
 
         <div className={returner()}>
 

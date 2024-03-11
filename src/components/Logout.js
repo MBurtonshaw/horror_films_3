@@ -67,7 +67,7 @@ function Logout(props) {
             );
         }
         return (
-            <div>
+            <div className=' w-75 mx-auto my-3 background_box p-5'>
                 {
                     content_filler()
                 }

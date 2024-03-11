@@ -161,8 +161,7 @@ function Decades(props) {
                                                     <button key={i} type="button" data-bs-target="#decadesCarousel" data-bs-slide-to={i} aria-label={`Slide ${i}`}></button>
                                                 );
                                             }
-                                        }
-                                    )
+                                        })
                                 }
                             </div>
                             <div className="carousel-inner inner_width_adj">
@@ -171,8 +170,7 @@ function Decades(props) {
                                         return (
                                             carousel_filler('', `/titles/${item.url}`, `../photos/titles/${item.url}_rectangle.jpg`, i)
                                         );
-                                    }
-                                    )
+                                    })
                                 }
                             </div>
                         </div>
@@ -219,8 +217,7 @@ function Decades(props) {
                                     return (
                                         carousel_filler('', `/titles/${item.url}`, `../photos/titles/${item.url}_rectangle.jpg`, i)
                                     );
-                                }
-                                )
+                                })
                             }
                         </div>
                     </div>

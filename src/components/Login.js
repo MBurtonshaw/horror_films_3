@@ -86,7 +86,7 @@ function Login(props) {
             );
         }
         return (
-            <div className='my-5'>
+            <div className=' w-75 mx-auto my-3 background_box p-5'>
                 <h1>Login</h1>
                 {
                     form_filler()

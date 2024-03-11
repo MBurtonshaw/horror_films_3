@@ -16,6 +16,8 @@ body {
   text-align: center;
   font-family: 'Signika Negative', sans-serif;
   text-shadow: 1px 1px 2px black;
+  letter-spacing: 1px;
+  word-spacing: 3px;
   overflow-x: hidden;
 }
 
@@ -42,6 +44,11 @@ body:after {
 
 .btn {
   border: none;
+}
+
+.nonchalant_list {
+  list-style: none;
+  margin: 0 2em 0 0;
 }
 
 .dosis-huge {
@@ -104,6 +111,11 @@ body:after {
 
 .header_wrapper {
   border: 1px solid red;
+}
+
+.nonchalant_color {
+  text-decoration: none;
+  color: rgb(233, 112, 90);
 }
 
 .inner_width_adj {

@@ -352,7 +352,7 @@ function Main(props) {
             );
         }
         return (
-            <div className='background_box rounded_large'>
+            <div className='background_box rounded_large my-3'>
                 <div>
                     {genre_carousel()}
                 </div>
