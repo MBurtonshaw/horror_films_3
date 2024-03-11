@@ -113,6 +113,18 @@ body:after {
   border: 1px solid red;
 }
 
+.title_pic_div {
+  margin: 3.5em 0 3.5em 0;
+}
+
+.title_pic {
+  width: 60%;
+}
+
+.title_text {
+  margin: 2em 0 2em 0;
+}
+
 .nonchalant_color {
   text-decoration: none;
   color: rgb(233, 112, 90);
